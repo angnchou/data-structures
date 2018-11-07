@@ -20,12 +20,14 @@ var Stack = function() {
 
     for (var key in storage) {
       var keys = Object.keys(storage);
-      var lastKeys = keys.slice(keys.length-1);
-      console.log(lastKeys)
-      return storage[lastKeys];
-      delete storage[lastKeys];
+      var lastKey = keys.slice(keys.length-1);
+      console.log(lastKey)
+      var lastValue = storage[lastKey];
+      delete storage[lastKey];
+      return lastValue;
     }
     //lastKeys[lastKeys.length];
+    console.log(storage)
     
     
   };
