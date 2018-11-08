@@ -26,3 +26,4 @@ var Stack = function() {
 
 
 
+  var box = new Stack();
