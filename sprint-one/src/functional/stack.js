@@ -10,26 +10,19 @@ var Stack = function() {
   // Implement the methods below
   someInstance.push = function(value) {
     //increment size inside push since push is what changes the size
-    size ++;
-    storage[count] = value;
-    count ++;
+    //size ++;
+    storage[size++] = value;
+    //count ++;
   };
 
   someInstance.pop = function() {
-    size --;
-
-    for (var key in storage) {
-      var keys = Object.keys(storage);
-      var lastKey = keys.slice(keys.length-1);
-      console.log(lastKey)
-      var lastValue = storage[lastKey];
-      delete storage[lastKey];
-      return lastValue;
+    if (size <= 0) {
+      return undefined; // guard clause so no delete happens if []
     }
-    //lastKeys[lastKeys.length];
-    console.log(storage)
-    
-    
+    size--;
+    var lastValue = storage[size];
+    delete storage[size];
+    return lastValue;    
   };
 
   someInstance.size = function() {
@@ -39,9 +32,9 @@ var Stack = function() {
     //   return Object.keys(storage).length;
     //can just return length like below
     //return Object.keys(storage).length;
-    if (size < 0) {
-      return 0;
-    }
+    // if (size < 0) {
+    //   return 0;
+    // }
     return size;
   };
 
