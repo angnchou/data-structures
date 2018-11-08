@@ -28,8 +28,6 @@ class Stack {
   size() {
     return this.storage.size;
   }
-
-
 };
 
 var box = new Stack();
