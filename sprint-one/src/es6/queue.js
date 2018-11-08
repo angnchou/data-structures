@@ -20,9 +20,9 @@ class Queue {
       return undefined;
     }
     
-    var lastValue = this.storage[this.storage.start];
-    delete this.storage.start;
     this.storage.size -- ;
+    var lastValue = this.storage[this.storage.start];
+    delete this.storage[this.storage.start];
     this.storage.start ++;
     return lastValue;
   }

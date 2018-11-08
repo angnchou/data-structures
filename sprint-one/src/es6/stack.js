@@ -9,7 +9,7 @@ class Stack {
   push(value) {
     this.storage[this.storage.size] = value;
     this.storage.size ++;
-    console.log(this.storage.size, 'push');
+    console.log(this.storage.size, 'push', this.storage);
   }
 
   pop() {
@@ -17,9 +17,11 @@ class Stack {
       return undefined;
     }
     
-    var lastValue = this.storage[this.storage.size];
-    delete this.storage.size;
     this.storage.size -- ;
+    var lastValue = this.storage[this.storage.size];
+    console.log(lastValue, this.storage.size)
+    delete this.storage[this.storage.size];
+    
     return lastValue;
   }
 

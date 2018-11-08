@@ -1,10 +1,10 @@
 var Stack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
-  //var someInstance = {};
+
   this.storage = {};
   this.storage.size = 0;
-  //console.log(this.storage.size)
+
 };
   Stack.prototype.push = function(value) {
     this.storage[this.storage.size] = value;
@@ -26,4 +26,3 @@ var Stack = function() {
 
 
 
-  var box = new Stack();
