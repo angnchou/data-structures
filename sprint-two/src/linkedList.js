@@ -33,25 +33,40 @@ var LinkedList = function() {
   };
 
   list.contains = function(target) {
-    //node.value = target
-    //list.head.value === target  => true 
-    
-    for (var key in list.head) {
-      // console.log(list, 'list');
-      
-      while (list.head.next !== null) {
-        if (list.head.value === target) {
+    var nextNode = list.head;
+    //console.log(list.head.value, list.head.next);
+    while (nextNode !== null) { //nextNode.next === null for the last node so while loop wouldn't run for the last node
+      if (nextNode.value === target) {
+        return true;
+      } else {
+        console.log(nextNode, nextNode.next)
+        nextNode = nextNode.next;
         
-          return true;
-        } else {
-          list.head.value = list.head.next.value;
-          console.log(list.head.value, list.head.next)
-          return list.contains(target);
-        }
       }
-
-      return false;
     }
+    return false;
+
+
+
+//     //node.value = target
+    // list.head.value === target  => true 
+    
+//     for (var key in list.head) {
+//       // console.log(list, 'list');
+      
+//    
+//         if (list.head.value === target) {
+        
+//           return true;
+//         } else {
+//           nextNode = list.head.next;
+//           //console.log(list.head.value, list.head.next)
+//           //return list.contains(target);
+//         }
+//       }
+
+//       return false;
+//     }
   };
   return list;
 };
