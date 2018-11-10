@@ -39,7 +39,7 @@ var LinkedList = function() {
       if (nextNode.value === target) {
         return true;
       } else {
-        console.log(nextNode, nextNode.next)
+        // console.log(nextNode, nextNode.next)
         nextNode = nextNode.next;
         
       }
