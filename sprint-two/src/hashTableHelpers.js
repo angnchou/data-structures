@@ -1,4 +1,4 @@
-/*
+ /*
  ********** NOTE: **********
  * Do not edit this code unless you see a bug!
  */
@@ -17,14 +17,17 @@ var LimitedArray = function(limit) {
   var limitedArray = {};
   limitedArray.get = function(index) {
     checkLimit(index);
+    // console.log(storage[index])
     return storage[index];
   };
   limitedArray.set = function(index, value) {
     checkLimit(index);
     storage[index] = value;
+    // console.log('storage', storage)
   };
   limitedArray.each = function(callback) {
-    for (var i = 0; i < storage.length; i++) {
+    for (var i = 0; i < storage.length; i++) {``
+      // console.log(storage)
       callback(storage[i], i, storage);
     }
   };
@@ -37,7 +40,7 @@ var LimitedArray = function(limit) {
       throw new Error('Error trying to access an over-the-limit index');
     }
   };
-
+  //console.log(limitedArray)
   return limitedArray;
 };
 
