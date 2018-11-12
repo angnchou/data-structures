@@ -1,36 +1,37 @@
 var Queue = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
-  var someInstance = Object.create(queueMethods);
-  someInstance.storage = {start: 0, end: 0, size: 0};
-  return someInstance;
+  var obj = Object.create(queueMethods);
+  //var obj = {};
+  obj.storage = [];
+  obj.start = 0;
+  obj.end = 0;
+  return obj;
+
 };
 
-var queueMethods = {
-  enqueue: function(value) {
-    this.storage[this.storage.end] = value;
-    this.storage.size ++;
-    this.storage.end ++;
-  },
+var queueMethods = {}; //to define queueMethods
 
-  dequeue: function() {
-    if (this.storage.size <= 0) {
-      return undefined;
-    }
- 
-    var firstValue = this.storage[this.storage.start];
-    delete this.storage[this.storage.start];
-    this.storage.start ++;
-    this.storage.size --;
-    return firstValue;
-  },
+queueMethods.enqueue = function(value) {
+  this.storage[this.end++] = value;
+};    
 
-  size: function() {
-    return this.storage.size;
-
-  }
-
-  
+queueMethods.dequeue = function() {
+  if (this.end - this.start <= 0) {
+    return undefined;
+  } 
+  var firstValue = this.storage[this.start];
+  delete this.storage[this.start++];
+  return firstValue;
 };
 
+queueMethods.size = function() {
+  return this.end - this.start;
 
+};
+
+//attaching methods to the prototype of the constructor -->
+//  var Queue = function(){
+  // var obj = Object.create(Queue.prototype);
+// }
+// Queue.prototype.enqueue = function(){};

@@ -7,13 +7,16 @@ var Stack = function() {
   return someInstance;
 };
 
-var stackMethods = {
-  push: function(value){
+var stackMethods =  {};
+
+//var stackMethods = {
+
+stackMethods.push = function(value) {
     this.storage[this.storage.count] = value;
     this.storage.count ++;
-  },
+};    
 
-  pop: function() {
+stackMethods.pop = function() {
     if (this.storage.count <= 0) {
       return undefined;
     }
@@ -23,11 +26,15 @@ var stackMethods = {
     
     return newestValue;
 
-  },
+};
 
-  size: function() {
+stackMethods.size = function() {
     return this.storage.count;
-  }
 };
 
 
+//attaching methods to the prototype of the constructor -->
+//  var Queue = function(){
+  // var obj = Object.create(Stack.prototype);
+// }
+// Stack.prototype.enqueue = function(){};
