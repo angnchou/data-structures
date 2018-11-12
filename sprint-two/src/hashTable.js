@@ -1,12 +1,16 @@
  
 
-var HashTable = function() {
+var HashTable = function() { // [  [[k, v], [k, x]], [k1, v1], [k2, v2]  ]
   this._limit = 8;
   this._storage = LimitedArray(this._limit);
   // console.log(this._storage)
 };
 
 HashTable.prototype.insert = function(k, v) {
+  //to insert, check if hashed index has data
+    //if no data, store [key, value] at index
+    //if there is data at the index with the same key data[0][0] === k, add new value to next locaton at the same index in the 2D array at the index data[0][1]
+    //if there is data but with different key, push [key, value] to 2D array
   var index = getIndexBelowMaxForKey(k, this._limit);
   var data = this._storage.get(index)
   if (data === undefined) {

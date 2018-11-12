@@ -1,8 +1,9 @@
 var BinarySearchTree = function(value) {
+  //newTree is an obj that stores itself, and value of left and right node
   var newTree = {};
   newTree.value = value
 
-  newTree.left = null; // left, right
+  newTree.left = null; // 
   newTree.right = null; 
     
   _.extend(newTree, BSTreeMethods);
@@ -14,6 +15,8 @@ var BSTreeMethods = {};
 
 BSTreeMethods.insert = function(value){
 //check to see value is less than this value
+  //if so, add new tree to this.left
+  //if not, add neww tree to this.right
   if (value === this.value) {
     return
   };
@@ -27,9 +30,9 @@ BSTreeMethods.insert = function(value){
 // if there is a current node at left, recurse, through the left
       this.left.insert(value)  
       }
-  // if value is greater than current node value 
   } 
   if (value > this.value) {
+  // if value is greater than current node value 
     //if there is nothing in the right side 
     if (this.right === null) {
     //assign new node to this.rigth
@@ -48,7 +51,8 @@ BSTreeMethods.contains = function(target){
     //call .contains with this.left
   //if current value > target
     //call .contains with this.right
-  //console.log(this)
+
+//another way of doing .contains() below -->
  // var result = false;
   // if (this.value === target) {
   //   result = true;
@@ -95,6 +99,8 @@ BSTreeMethods.depthFirstLog = function(callback){
 
   
   //call callback on current node
+    //if current node's left node is not null, call callback on left node
+    //if current node's right node is not null, call callback on right node
   callback(this.value)
 
   if (this.left !== null ) {
