@@ -16,9 +16,9 @@ var Stack = function() {
      return undefined;
     }
     this.storage.size --;
-    this.lastValue = this.storage[this.storage.size];
+    var lastValue = this.storage[this.storage.size];
     delete this.storage[this.storage.size];
-    return this.lastValue;
+    return lastValue;
   }
   Stack.prototype.size = function() {
     return this.storage.size;
