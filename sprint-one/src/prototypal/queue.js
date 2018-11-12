@@ -3,7 +3,7 @@ var Queue = function() {
   // but try not not reference your old code in writing the new style.
   var obj = Object.create(queueMethods);
   //var obj = {};
-  obj.storage = [];
+  obj.storage = {};
   obj.start = 0;
   obj.end = 0;
   return obj;
