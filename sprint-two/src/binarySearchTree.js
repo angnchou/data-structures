@@ -49,23 +49,36 @@ BSTreeMethods.contains = function(target){
   //if current value > target
     //call .contains with this.right
   //console.log(this)
-  var result = false;
+ // var result = false;
+  // if (this.value === target) {
+  //   result = true;
+  // }
+
+  // // if target < this.value
+  // if (this.value < target) {
+  //   if (this.left) {
+  //     this.left.contains(target);
+  //   } else {
+  //     if (this.right) {
+  //       this.right.contains(target)
+  //     }
+  //   }
+  // }
   if (this.value === target) {
-    result = true;
+    return true;
   }
 
-  // if target < this.value
-  if (this.value < target) {
-    if (this.left) {
-      this.left.contains(target);
-    } else {
-      if (this.right) {
-        this.right.contains(target)
-      }
+  if (target < this.value) {
+    if (this.left !== null) {
+      return this.left.contains(target);
     }
-  }
+  } else {
+    if (this.right !== null) {
+      return this.right.contains(target);
+    }
+  } 
 
-  return result;
+  return false;
 };
 
 BSTreeMethods.depthFirstLog = function(callback){
