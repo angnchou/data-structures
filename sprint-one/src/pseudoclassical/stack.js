@@ -31,25 +31,25 @@ var Stack = function() {
   // but try not not reference your old code in writing the new style.
 
   this.storage = {};
-  this.size = 0;
+  this.count = 0;
 
 };
   Stack.prototype.push = function(value) {
-    this.storage[this.size] = value;
-    this.size ++;
+    this.storage[this.count] = value;
+    this.count ++;
   }
 
   Stack.prototype.pop = function() {
-    if (this.size <= 0) {
+    if (this.count <= 0) {
      return undefined;
     }
-    this.size --;
-    var lastValue = this.storage[this.size];
-    delete this.storage[this.size];
+    this.count --;
+    var lastValue = this.storage[this.count];
+    delete this.storage[this.count];
     return lastValue;
   }
   Stack.prototype.size = function() {
-    return this.size;
+    return this.count;
   }
 
 
